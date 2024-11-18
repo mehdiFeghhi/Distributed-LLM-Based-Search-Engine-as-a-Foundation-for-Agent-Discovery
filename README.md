@@ -25,7 +25,7 @@ The project is divided into two main components:
 ### Hub
 - **AI-Powered Search Engines:** These search engines are built using FastAPI, providing a robust API-driven architecture. Each engine facilitates agent matchmaking and collaboration.
 
-![AI-Powered Search Engines](First_Image.png)
+![AI-Powered Search Engines](docs/main.png)
 
 ### Agent
 - **Intelligent Agents:** We have designed 9 intelligent agents with specialized skills. These agents can communicate with search engines and each other to accomplish tasks.
@@ -79,14 +79,15 @@ uvicorn main:app --host 127.0.0.1 --port 8002
 
 ### Cooking Task
 The "Chef Agent" collaborates with "Pantry" and "Shopping" agents to cook a meal, showcasing efficient task coordination.
-
+![Cooking Consultation Scenario](docs/Cooking_Consultation.png)
 ### Medical Consultation
 A "Medical Agent" consults with a "Cardiologist Agent" and a "Pharmacy Agent" for patient treatment, demonstrating a decentralized healthcare approach.
 
-![Medical Consultation Scenario](Medical_Consultation.png)
+![Medical Consultation Scenario](docs/Medical_Consultation.png)
 
 ### Hotel Reservation
 The "Consultant Agent" interacts with "Hotel Reservation Agents" for a dynamic hotel booking process.
+![Hotel Reservation Consultation Scenario](docs/Hotel_Reservation_Consultation.png)
 
 ## Documentation
 
