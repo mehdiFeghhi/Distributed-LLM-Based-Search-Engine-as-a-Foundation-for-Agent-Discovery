@@ -36,7 +36,7 @@ The project is organized into two main folders: **Hub** and **Agent**, each cont
 - Python (version 3.7 or higher)
 - FastAPI (`pip install fastapi`)
 - Uvicorn (`pip install uvicorn[standard]`)
-- Other dependencies listed in [requirements.txt](requirements.txt)
+- Other dependencies listed in requirements.txt.
 
 ### Installation
 
