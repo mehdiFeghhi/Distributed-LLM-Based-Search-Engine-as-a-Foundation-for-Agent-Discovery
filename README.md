@@ -24,8 +24,10 @@ The project is divided into two main components:
 
 ### Hub
 - **AI-Powered Search Engines:** These search engines are built using FastAPI, providing a robust API-driven architecture. Each engine facilitates agent matchmaking and collaboration.
+<div align="center">
+  <img src="docsmain.png" alt="Hotel Reservation Consultation Scenario" width="800">
+</div>
 
-![AI-Powered Search Engines](docs/main.png)
 
 ### Agent
 - **Intelligent Agents:** We have designed 9 intelligent agents with specialized skills. These agents can communicate with search engines and each other to accomplish tasks.
