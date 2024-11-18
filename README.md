@@ -53,7 +53,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/ai-decentralized-agents.git
+git clone https://github.com/mehdiFeghhi/Distributed-LLM-Based-Search-Engine-as-a-Foundation-for-Agent-Discovery.git
 ```
 
 2. Navigate to each component and install dependencies:
