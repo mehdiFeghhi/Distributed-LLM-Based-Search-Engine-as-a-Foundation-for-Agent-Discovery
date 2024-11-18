@@ -80,16 +80,21 @@ uvicorn main:app --host 127.0.0.1 --port 8002
 ### Cooking Task
 The "Chef Agent" collaborates with "Pantry" and "Shopping" agents to cook a meal, showcasing efficient task coordination.
 <div align="center">
-  <img src="docs/Cooking_Consultation.png" alt="Cooking Consultation Scenario" width="600">
+  <img src="docs/Cooking_Consultation.png" alt="Cooking Consultation Scenario" width="400">
 </div>
 
 ### Medical Consultation
 A "Medical Agent" consults with a "Cardiologist Agent" and a "Pharmacy Agent" for patient treatment, demonstrating a decentralized healthcare approach.
+<div align="center">
+  <img src="docs/Medical_Consultation.png" alt="Medical Consultation Scenario" width="400">
+</div>
 
-![Medical Consultation Scenario](docs/Medical_Consultation.png)
 ### Hotel Reservation
 The "Consultant Agent" interacts with "Hotel Reservation Agents" for a dynamic hotel booking process.
 ![Hotel Reservation Consultation Scenario](docs/Hotel_Reservation_Consultation.png)
+<div align="center">
+  <img src="docs/Hotel_Reservation_Consultation" alt="Hotel Reservation Consultation Scenario" width="400">
+</div>
 
 ## Documentation
 
