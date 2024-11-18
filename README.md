@@ -47,10 +47,10 @@ git clone https://github.com/your-username/ai-decentralized-system.git
 
 2. Navigate to each folder and install dependencies:
 ```bash
-cd hub
+cd hub/{name_hub}
 pip install -r requirements.txt
 
-cd ../agent
+cd ../agent/{name_agent}
 pip install -r requirements.txt
 ```
 
@@ -66,17 +66,7 @@ uvicorn main:app --host 127.0.0.1 --port 8001
 uvicorn main:app --host 127.0.0.1 --port 8002
 ```
 
-3. Access the FastAPI documentation at `http://127.0.0.1:8001/docs` or `http://127.0.0.1:8002/docs` for the respective search engine and agent.
-
-## API Endpoints
-
-### Search Engine Endpoints
-- **Agent Registration:** `/register` (POST) - Register a new agent with its details.
-- **Search Agents:** `/search_agents` (GET) - Search for agents based on capabilities.
-
-### Agent Endpoints
-- **Task Handling:** `/handle_task` (POST) - Receive and process tasks, communicating with other agents or users as needed.
-- **Agent Communication:** `/communicate` (POST) - Engage in various communication protocols with other agents.
+3. Access the FastAPI documentation at `http://127.0.0.1:8001/docs` or `http://127.0.0.1:8010/docs` for the respective search engine and agent.
 
 ## Usage Examples
 
