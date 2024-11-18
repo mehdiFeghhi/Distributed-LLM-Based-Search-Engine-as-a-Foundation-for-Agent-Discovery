@@ -1,51 +1,60 @@
 # AI-Powered Decentralized Search Engine and Intelligent Agents
 
+## Overview
+
+Welcome to our innovative project that combines AI-powered search engines with a network of intelligent agents, creating a decentralized system for efficient task management and collaboration. This project showcases the potential of decentralized architectures and intelligent agents in various real-world scenarios.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Project Structure](#project-structure)
+- [Key Features](#key-features)
+- [Getting Started](#getting-started)
+- [Usage Examples](#usage-examples)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Introduction
 
-This project presents a decentralized AI-powered search engine and a network of intelligent agents, each with unique capabilities, designed to collaborate and manage tasks efficiently. The system is built using Python, leveraging the power of FastAPI for creating a robust API-driven architecture.
+In this project, we introduce a novel approach to task management by decentralizing the search and collaboration process. We have developed multiple AI-powered search engines, each acting as a hub for intelligent agents with diverse capabilities. These agents can communicate, collaborate, and adapt to various tasks, making the system highly versatile and efficient.
 
 ## Project Structure
 
-The project is organized into two main folders: **Hub** and **Agent**, each containing the following components:
+The project is divided into two main components:
 
-### Hub Folder
-- **AI-Powered Search Engines:**
-  - Each search engine is a FastAPI application, representing a decentralized hub for agent matchmaking and collaboration.
-  - Run each search engine with: `uvicorn main:app --host 127.0.0.1 --port {port_number}`.
-  - Ports for each engine: {list_of_ports}.
-  - These hubs facilitate agent discovery and communication, acting as intelligent intermediaries.
+### Hub
+- **AI-Powered Search Engines:** These search engines are built using FastAPI, providing a robust API-driven architecture. Each engine facilitates agent matchmaking and collaboration.
 
-### Agent Folder
-- **Intelligent Agents:**
-  - 9 distinct agents, each with specialized skills, ready to handle various tasks.
-  - Run an agent with: `uvicorn main:app --host 127.0.0.1 --port {port_number}`.
-  - Agents communicate with the search engines and other agents using standardized protocols.
+![AI-Powered Search Engines](First_Image.png)
+
+### Agent
+- **Intelligent Agents:** We have designed 9 intelligent agents with specialized skills. These agents can communicate with search engines and each other to accomplish tasks.
 
 ## Key Features
 
-- **Agent Registration:** Agents register with the search engines, providing their capabilities and contact details.
-- **Task Assignment:** Search engines assign tasks to agents based on their capabilities.
-- **Agent Search:** Users can search for agents with specific skills using the search engines.
-- **Agent Communication:**
-  - **Basic Communication:** Agents use `/help` endpoint to retrieve API documentation and adapt to new tasks.
-  - **Advanced Communication:** For complex tasks, agents use `/agent_request` for one-time queries and `/create_chat` for multi-turn dialogues.
+- **Decentralized Architecture:** The system's decentralized nature ensures no single point of failure and enhances privacy and security.
+- **Agent Registration:** Agents register with search engines, sharing their capabilities and contact details.
+- **Task Assignment:** Search engines intelligently assign tasks to agents based on their expertise.
+- **Advanced Agent Communication:** Agents use various communication endpoints for basic and complex task collaboration.
 
 ## Getting Started
 
+To run this project locally, follow these steps:
+
 ### Prerequisites
-- Python (version 3.7 or higher)
+- Python 3.7 or higher
 - FastAPI (`pip install fastapi`)
 - Uvicorn (`pip install uvicorn[standard]`)
-- Other dependencies listed in requirements.txt.
+- Install other dependencies from `requirements.txt`.
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/ai-decentralized-system.git
+git clone https://github.com/your-username/ai-decentralized-agents.git
 ```
 
-2. Navigate to each folder and install dependencies:
+2. Navigate to each component and install dependencies:
 ```bash
 cd hub/{name_hub}
 pip install -r requirements.txt
@@ -66,24 +75,30 @@ uvicorn main:app --host 127.0.0.1 --port 8001
 uvicorn main:app --host 127.0.0.1 --port 8002
 ```
 
-3. Access the FastAPI documentation at `http://127.0.0.1:8001/docs` or `http://127.0.0.1:8010/docs` for the respective search engine and agent.
-
 ## Usage Examples
 
-- **Cooking Task:** Assign a cooking task to the "Chef Agent," which collaborates with "Pantry Agent" and "Shopping Agent" to gather ingredients and prepare a meal.
-- **Medical Consultation:** A "Medical Agent" analyzes symptoms, consults with a "Cardiologist Agent," and procures medications from a "Pharmacy Agent."
-- **Hotel Reservation:** The "Consultant Agent" interacts with "Hotel Reservation Agents" to negotiate and book a hotel room.
+### Cooking Task
+The "Chef Agent" collaborates with "Pantry" and "Shopping" agents to cook a meal, showcasing efficient task coordination.
+
+### Medical Consultation
+A "Medical Agent" consults with a "Cardiologist Agent" and a "Pharmacy Agent" for patient treatment, demonstrating a decentralized healthcare approach.
+
+![Medical Consultation Scenario](Medical_Consultation.png)
+
+### Hotel Reservation
+The "Consultant Agent" interacts with "Hotel Reservation Agents" for a dynamic hotel booking process.
 
 ## Documentation
 
-- **API Documentation:** FastAPI's interactive API documentation is available at each application's respective port (e.g., `http://127.0.0.1:8001/docs`).
-- **Code Documentation:** Detailed code comments are included throughout the codebase.
-- **Research Paper:** The accompanying [research paper](docs/research_paper.pdf) provides a comprehensive overview of the project.
+- **API Documentation:** Explore the interactive API docs at `http://127.0.0.1:{port}/docs`.
+- **Research Paper:** Refer to [research_paper.pdf](docs/research_paper.pdf) for an in-depth project analysis.
 
 ## Contributing
 
-Contributions are welcome! Please refer to the [Contribution Guidelines](CONTRIBUTING.md) for more information.
+We welcome contributions! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+Feel free to customize and expand this README to fit your project's specific details and requirements. The above example provides a concise overview of your project while highlighting key features and functionalities.
