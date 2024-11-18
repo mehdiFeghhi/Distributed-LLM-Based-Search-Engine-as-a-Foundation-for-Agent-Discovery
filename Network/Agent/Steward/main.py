@@ -2,10 +2,10 @@ from pyrogram import Client, filters
 from model import Steward  # Assuming your Steward class is in model.py
 import logging
 # Replace the values with your own details
-API_ID = "3319961"  # Get this from my.telegram.org
-API_HASH = "4b29dfcc07e782dcc4a03366d74b19a8"  # Get this from my.telegram.org
-BOT_TOKEN = "8125938131:AAGU18s7UV0kH9J10-0W-27SUb-kyn56yQo"  # Get this from @BotFather
-TARGET_USER_ID = 282028932  # The user_id of the person
+API_ID = ""  # Get this from my.telegram.org
+API_HASH = ""  # Get this from my.telegram.org
+BOT_TOKEN = ""  # Get this from @BotFather
+TARGET_USER_ID = ""  # The user_id of the person
 
 
 
