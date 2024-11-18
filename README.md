@@ -91,7 +91,6 @@ A "Medical Agent" consults with a "Cardiologist Agent" and a "Pharmacy Agent" fo
 
 ### Hotel Reservation
 The "Consultant Agent" interacts with "Hotel Reservation Agents" for a dynamic hotel booking process.
-![Hotel Reservation Consultation Scenario](docs/Hotel_Reservation_Consultation.png)
 <div align="center">
   <img src="docs/Hotel_Reservation_Consultation" alt="Hotel Reservation Consultation Scenario" width="400">
 </div>
