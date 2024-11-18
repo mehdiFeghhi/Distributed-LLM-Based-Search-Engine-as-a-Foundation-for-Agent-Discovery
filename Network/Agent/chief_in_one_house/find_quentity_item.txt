@@ -1,0 +1,21 @@
+You are tasked with determining the quantity of herbs and other items to buy, based on the following requirements:
+
+1. **Usage:** How much of each herb will be used, considering the recipes for the meals?
+2. **Servings:** You need to provide enough for **3 servings**.
+3. **Freshness:** Since the herbs will be used over a **short period** and not stored, calculate quantities accordingly, avoiding excess.
+4. **Output Format:** Return the quantity of each item in the following JSON format:
+
+```json
+{
+  "item_name": quantity,
+  "item_name": quantity
+}
+```
+
+If no items or quantities are determined, return an empty JSON object:
+
+```json
+{}
+```
+
+Ensure the quantities align with these preferences, prioritizing fresh use with no storage.

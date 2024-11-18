@@ -1,0 +1,167 @@
+# Developer Documentation
+
+## Introduction
+
+This documentation provides an overview of the API endpoints for the pharmacy management system. The system supports querying agents, processing sales, and managing product stock, ensuring that pharmacies can efficiently handle product inventory and customer transactions.
+
+## API Overview
+
+### Base URL
+
+`http://your-api-url`
+
+### Endpoints
+
+#### 1. Search Agent
+
+- **Endpoint:** `/agent_request`
+- **Method:** `POST`
+- **Description:** Searches for agents based on the requested products and quantities. Returns products that meet the requested quantities based on available stock.
+- **Request Parameters:**
+  - `body` (JSON, `dict`): A dictionary where the key is the product name and the value is the quantity needed. Example: `{"Aspirin": 10, "Ibuprofen": 5}`.
+  - `request` (header, `Request`): The HTTP request object, used to extract client IP and port.
+
+- **Request Example:**
+  ```json
+  {
+    "Aspirin": 10,
+    "Ibuprofen": 5
+  }
+  ```
+
+- **Response Example:**
+  ```json
+  {
+    "Aspirin": {
+      "number": 10,
+      "price": 129.90,
+      "unit": "boxes"
+    },
+    "Ibuprofen": {
+      "number": 5,
+      "price": 6.00,
+      "unit": "liter"
+    }
+  }
+  ```
+
+- **Success Status Code:**
+  - `200 OK`
+
+#### 2. Sell Agent
+
+- **Endpoint:** `/agent_sell`
+- **Method:** `POST`
+- **Description:** Processes the sale of items. Validates the token, checks item availability, reduces stock, and handles the sale transaction.
+- **Request Parameters:**
+  - `body` (JSON, `dict`): A dictionary containing the products and their quantities to be sold.
+  - `token` (query, `str`): Authorization token for the transaction.
+  - `request` (header, `Request`): The HTTP request object, used to extract client IP and port.
+
+- **Request Example:**
+  ```json
+  {
+    "Aspirin": 5
+  }
+  ```
+
+- **Response Example:**
+  ```json
+  {
+    "sold_items": {
+      "Aspirin": 5
+    },
+    "message": "Items sold successfully."
+  }
+  ```
+
+- **Exception Status Codes:**
+  - `401 Unauthorized`: Invalid token.
+  - `404 Not Found`: Product does not exist or stock is insufficient.
+
+- **Success Status Code:**
+  - `200 OK`
+
+## Product List
+
+### Available Products
+
+The following pharmacy products are available for purchase:
+
+| Product Name           | Number | Unit    | Price  |
+|------------------------|--------|---------|--------|
+| Aspirin                | 120    | boxes   | 12.99  |
+| Ibuprofen              | 40     | liter   | 1.20   |
+| Cough Syrup            | 23     | bottles | 6.75   |
+| Antacid Tablets        | 4      | packs   | 4.25   |
+| Beta-blockers          | 5      | bottle  | 22.50  |
+| ACE inhibitors         | 3      | bottle  | 18.00  |
+| Diuretics              | 42     | boxes   | 15.00  |
+| Antiplatelet agents    | 42     | bottle  | 19.99  |
+
+Users can reference these product names when querying or making transactions with the API.
+
+## Integrating with the API
+
+### Authentication
+
+The `/agent_sell` endpoint requires an authorization token. Ensure to include a valid token in your requests.
+
+### Error Handling
+
+- **HTTPException:** Raised for invalid tokens, missing products, or insufficient stock.
+- Ensure your application gracefully handles these exceptions and provides user-friendly error messages.
+
+### Building Your Application
+
+1. **Set Up Your Environment:**
+   - Ensure you have a server set up to handle HTTP requests (e.g., FastAPI, Flask).
+   - Install necessary libraries, including `requests` for making API calls.
+
+2. **Making API Requests:**
+   - Use the provided endpoints to interact with the pharmacy system.
+   - For searching agents, send a `POST` request to `/agent_request` with a dictionary of products and quantities.
+   - For selling products, send a `POST` request to `/agent_sell` with the products to be sold and an authorization token.
+
+3. **Example Code:**
+
+   ```python
+   import requests
+
+   BASE_URL = "http://your-api-url"
+
+   def search_agent(products):
+       url = f"{BASE_URL}/agent_request"
+       response = requests.post(url, json=products)
+       return response.json()
+
+   def sell_agent(products, token):
+       url = f"{BASE_URL}/agent_sell"
+       response = requests.post(url, json=products, params={"token": token})
+       return response.json()
+
+   # Example usage
+   search_response = search_agent({"Aspirin": 10, "Ibuprofen": 5})
+   print(search_response)
+
+   result = sell_agent({"Aspirin": 5}, "your_token")
+   print(result)
+   ```
+
+4. **Handling Responses:**
+   - Check the response data to determine the result of your request.
+   - Implement logic to handle successful responses and errors.
+
+5. **Testing and Debugging:**
+   - Test your integration thoroughly using various scenarios.
+   - Use debugging tools and logging to trace issues.
+
+## Additional Information
+
+### Product Data
+
+The product data is managed in a CSV file (`products.csv`). Ensure this file is properly formatted and accessible to the `MarketAssistant` class.
+
+### Contact
+
+For support or further assistance, please contact the API provider at [support@yourdomain.com](mailto:support@yourdomain.com).

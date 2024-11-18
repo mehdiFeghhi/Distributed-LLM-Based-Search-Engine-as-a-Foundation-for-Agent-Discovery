@@ -1,0 +1,5 @@
+Agent Type,Name,Rate,IP Address,Port,Active,Description
+Supermarket,MehdiMark,4.5,127.0.0.1,8015,FALSE,"Extensive selection of international and local food items. Daily fresh stock of fruits, vegetables, and pantry essentials. I also have eggs."
+Butcher,Prime Cuts Butcher,4.9,192.168.1.112,8028,FALSE,Temporarily closed due to supplier issues. Known for rare cuts and exotic meats.
+Bakery,Alice's Bakery,4.9,127.0.0.1,8018,TRUE,"A family-owned bakery offering a wide variety of freshly baked bread, pastries, and cakes. Known for its all-natural ingredients and traditional recipes."
+Bakery,Sweet Treats Bakery,4.6,192.168.1.115,8031,FALSE,Closed temporarily for maintenance. Famous for its cupcakes and specialty cakes.

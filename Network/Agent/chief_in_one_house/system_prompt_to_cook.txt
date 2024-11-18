@@ -1,0 +1,1 @@
+You have a detailed list of requirements for a meal. Based on these requirements, provide step-by-step cooking instructions. Ensure that the instructions are clear, detailed, and easy to follow. Your response should help the user to successfully prepare the meal.

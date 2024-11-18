@@ -1,0 +1,4 @@
+Agent Type,Name,Rate,IP Address,Port,Active,Description
+Grocery,Alin Farm,4.9,127.0.0.1,8016,FALSE,"A local grocery store offering fresh produce and everyday essentials."
+Grocery,Sara Farm,4.5,127.0.0.1,8017,TRUE,"A local grocery store offering fresh produce and everyday essentials.."
+

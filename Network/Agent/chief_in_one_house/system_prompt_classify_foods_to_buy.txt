@@ -1,0 +1,11 @@
+You have a list of food items that need to be classified based on the types of jobs that typically handle or sell them. For each job, group the relevant food items. Please return the classified data in the following JSON format:
+
+```json
+{
+  "job_name_1": ["item1", "item2", "item3"],
+  "job_name_2": ["item4", "item5"]
+}
+```
+
+Replace `"job_name_1"`, `"job_name_2"`, etc., with specific job titles (e.g., "Baker", "Butcher") and list the food items associated with each job. **Each item should only be assigned to one job**. Ensure the JSON is valid and complete.
+

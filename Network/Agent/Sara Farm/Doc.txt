@@ -1,0 +1,159 @@
+# Sara's Farm Developer Documentation
+
+## Introduction
+
+This documentation provides an overview of the API endpoints for managing Sara's Farm products and guidance on how to integrate these endpoints into your application. The system allows for querying agents, processing sales, and managing product stock related to the farm's products.
+
+## API Overview
+
+### Base URL
+
+`http://sara-farm-api-url`
+
+### Available Items for Purchase
+
+The following items are available for purchase from Sara's Farm:
+
+- **Eggs**
+- **Milk**
+- **Tomatoes**
+- **Apples**
+- **Yogurt**
+
+These items can be requested by name in the API calls. For example, you can specify the quantity of each item you wish to purchase in the `agent_request` endpoint.
+
+### Endpoints
+
+#### 1. Search Agent
+
+- **Endpoint:** `/agent_request`
+- **Method:** `POST`
+- **Description:** Searches for agents based on the requested items and quantities. Returns products that meet the requested quantities based on available stock.
+- **Request Parameters:**
+  - `body` (JSON, `dict`): A dictionary where the key is the item name and the value is the quantity needed. Example: `{"Eggs": 12, "Milk": 2}`.
+  - `request` (header, `Request`): The HTTP request object, used to extract client IP and port.
+
+- **Request Example:**
+  ```json
+  {
+    "Eggs": 12,
+    "Milk": 2
+  }
+  ```
+
+- **Response Example:**
+  ```json
+  {
+    "Eggs": {
+      "number": 12,
+      "price": 3.00,
+      "unit": "dozen"
+    },
+    "Milk": {
+      "number": 2,
+      "price": 1.50,
+      "unit": "liters"
+    }
+  }
+  ```
+
+- **Success Status Code:**
+  - `200 OK`
+
+#### 2. Sell Agent
+
+- **Endpoint:** `/agent_sell`
+- **Method:** `POST`
+- **Description:** Processes the sale of items. Validates the token, checks item availability, reduces stock, and handles the sale transaction.
+- **Request Parameters:**
+  - `body` (JSON, `dict`): A dictionary containing the items and their quantities to be sold.
+  - `token` (query, `str`): Authorization token for the transaction.
+  - `request` (header, `Request`): The HTTP request object, used to extract client IP and port.
+
+- **Request Example:**
+  ```json
+  {
+    "Eggs": 6
+  }
+  ```
+
+- **Response Example:**
+  ```json
+  {
+    "sold_items": {
+      "Eggs": 6
+    },
+    "message": "Items sold successfully."
+  }
+  ```
+
+- **Exception Status Codes:**
+  - `401 Unauthorized`: Invalid token.
+  - `404 Not Found`: Items do not exist or stock is insufficient.
+
+- **Success Status Code:**
+  - `200 OK`
+
+## Integrating with the API
+
+### Authentication
+
+The `/agent_sell` endpoint requires an authorization token. Ensure to include a valid token in your requests.
+
+### Error Handling
+
+- **HTTPException:** Raised for invalid tokens, missing items, or insufficient stock.
+- Ensure your application gracefully handles these exceptions and provides user-friendly error messages.
+
+### Building Your Application
+
+1. **Set Up Your Environment:**
+   - Ensure you have a server set up to handle HTTP requests (e.g., FastAPI, Flask).
+   - Install necessary libraries, including `requests` for making API calls.
+
+2. **Making API Requests:**
+   - Use the provided endpoints to interact with Sara's Farm product system.
+   - For searching agents, send a `POST` request to `/agent_request` with a dictionary of items and quantities.
+   - For selling items, send a `POST` request to `/agent_sell` with the items to be sold and an authorization token.
+
+3. **Example Code:**
+   ```python
+   import requests
+
+   BASE_URL = "http://sara-farm-api-url"
+
+   def search_agent(items):
+       url = f"{BASE_URL}/agent_request"
+       response = requests.post(url, json=items)
+       return response.json()
+
+   def sell_agent(items, token):
+       url = f"{BASE_URL}/agent_sell"
+       response = requests.post(url, json=items, params={"token": token})
+       return response.json()
+
+   # Example usage
+   search_response = search_agent({"Eggs": 12, "Milk": 2})
+   print(search_response)
+
+   sell_response = sell_agent({"Eggs": 6}, "your_token")
+   print(sell_response)
+   ```
+
+4. **Handling Responses:**
+   - Check the response data to determine the result of your request.
+   - Implement logic to handle successful responses and errors.
+
+5. **Testing and Debugging:**
+   - Test your integration thoroughly using various scenarios.
+   - Use debugging tools and logging to trace issues.
+
+## Additional Information
+
+### Product Data
+
+The product data is managed in a CSV file (`sara_farm_products.csv`). Ensure this file is properly formatted and accessible to the `MarketAssistant` class.
+
+### Contact
+
+For support or further assistance, please contact Sara's Farm at [support@sarafarm.com](mailto:support@sarafarm.com).

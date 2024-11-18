@@ -1,0 +1,13 @@
+You have a table of available foods and a list of items needed for a meal. Determine if all required items are available to prepare the meal. Please return the result in the following JSON format:
+
+```json
+{
+  "status": "Completed" | "Not completed",
+  "missing_items": ["item1", "item2", "item3"]
+}
+```
+
+- Set `"status"` to `"Completed"` if all required items are available, or `"Not completed"` if any items are missing.
+- List any missing items in `"missing_items"`, or use an empty list if all items are available.
+
+Ensure the JSON response is well-structured and clearly indicates whether the meal requirements are fully met.
